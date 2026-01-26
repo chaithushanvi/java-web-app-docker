@@ -1,5 +1,7 @@
+
 ## This is a simple docker deployment in this we used different tools like 
 
+##
 GitHub
    ↓
 Jenkins (CI/CD)
@@ -11,7 +13,7 @@ Docker Hub
 Docker Swarm
    ↓
 Multiple Replicas on Multiple Nodes
-
+##
 
 
 
