@@ -1,5 +1,20 @@
 ## This is a simple docker deployment in this we used different tools like 
 
+GitHub
+   ↓
+Jenkins (CI/CD)
+   ↓
+Docker Image
+   ↓
+Docker Hub
+   ↓
+Docker Swarm
+   ↓
+Multiple Replicas on Multiple Nodes
+
+
+
+
 **
 ## Git+Maven+Jenkins+dockerswarm+docker**
 
