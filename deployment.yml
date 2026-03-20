@@ -1,18 +1,35 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: javawebapp-ENVIRONMENT-BUILD_NUMBER
+  name: mavenweb
+  labels:
+    type: maven
 spec:
-  replicas: 1
+  replicas: 2
+  selector:
+    matchLabels:
+      type: web
   template:
     metadata:
+      name: web
       labels:
-        app: javawebapp
-        version: "BUILD_NUMBER"
+        type: web
     spec:
       containers:
-      - name: javawebapp-ENVIRONMENT-BUILD_NUMBER
-        image: IMAGE
-        imagePullPolicy: IfNotPresent
-        ports:
-        - containerPort: 8080
+        - name: webapp
+          image: chaitanya9666/maven:1
+          ports:
+            - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: maven
+spec:
+  type: NodePort
+  ports:
+    - port: 8080
+      targetPort: 8080
+      nodePort: 30005
+  selector:
+    type: web
